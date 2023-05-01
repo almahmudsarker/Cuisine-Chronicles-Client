@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import "bootstrap/dist/css/bootstrap.min.css";
+import ErrorPage from "./error-page";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from './Layout/Main';
 import Home from './Home/Home';
@@ -14,24 +15,25 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/blog",
-        element: <Blog></Blog>
+        element: <Blog></Blog>,
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/register",
-        element: <Register></Register>
+        element: <Register></Register>,
       },
-    ]
+    ],
   },
 ]);
 
