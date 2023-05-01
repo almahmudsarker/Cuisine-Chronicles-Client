@@ -13,9 +13,11 @@ const Header = () => {
     }, [location]);
     
   return (
-    <Navbar expand="lg" variant="light" bg="light">
+    <Navbar expand="lg" variant="light" bg="transparent" sticky="top">
       <Container>
-        <Navbar.Brand href="/">Cuisine Chronicles</Navbar.Brand>
+        <Navbar.Brand href="/">
+          Cuisine Chronicles<br/><small className="fw-light">Indian Cuisine Chronicles</small>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <div className="flex-grow-1">
@@ -35,9 +37,7 @@ const Header = () => {
             </Link>
             <Link
               to="/blog"
-              className={
-                "underline" + (url === "/blog" ? " active" : "")
-              }
+              className={"underline" + (url === "/blog" ? " active" : "")}
               style={{
                 textDecoration: "none",
                 fontSize: "20px",
