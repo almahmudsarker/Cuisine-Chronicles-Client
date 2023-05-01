@@ -1,10 +1,19 @@
 import React from 'react';
+import { Container, Navbar } from 'react-bootstrap';
 
 const Footer = () => {
     return (
-        <div>
-            <h2>This is Footer</h2>
-        </div>
+      <Navbar expand="lg" variant="light" bg="transparent" style={{position: "fixed",
+  bottom: "0", width: "100%"}}>
+        <Container>
+          <h6>Copyrights © 2023 Cuisine Chronicles.</h6>
+          <small>
+            {" "}
+            All Rights Reserved. Created by Al Mahmud Sarker. Privacy Policy |
+            Terms of Use | Contact Us
+          </small>
+        </Container>
+      </Navbar>
     );
 };
 
