@@ -4,8 +4,6 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import { AuthContext } from "../../providers/AuthProvider";
-import { FaUser } from "react-icons/fa";
-import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 
 const Header = () => {
@@ -13,7 +11,7 @@ const Header = () => {
   const { user, handleSignOut } = useContext(AuthContext);
   
   const Name = user ? user.displayName : "Guest";
-  const photo = user ? user.photoURL : <FaUser />;
+  const photo = user ? user.photoURL : "user.png";
 
   const location = useLocation();
     const [url, setUrl] = useState(null);
@@ -22,13 +20,7 @@ const Header = () => {
     }, [location]);
     
   return (
-    <Navbar
-      className="shadow-sm  bg-body rounded"
-      expand="lg"
-      variant="light"
-      bg="transparent"
-      sticky="top"
-    >
+    <Navbar expand="lg" variant="light" bg="transparent" sticky="top">
       <Container>
         <Navbar.Brand href="/">
           Cuisine Chronicles
@@ -67,10 +59,14 @@ const Header = () => {
           </div>
           <div>
             {user && (
-              <img src={photo} id="app-title" className="rounded-circle me-3" style={{width: "50px"}} />
+              <img
+                src={photo}
+                className="my-anchor-element rounded-circle me-3"
+                style={{ width: "50px" }}
+              />
             )}
             <Tooltip
-              anchorId="app-title"
+              anchorSelect=".my-anchor-element"
               place="bottom"
               content={user ? Name : "Login"}
             />
