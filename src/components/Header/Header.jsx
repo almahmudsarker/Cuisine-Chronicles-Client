@@ -10,7 +10,7 @@ import { Tooltip } from "react-tooltip";
 
 const Header = () => {
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle,user } = useContext(AuthContext);
 
   const location = useLocation();
     const [url, setUrl] = useState(null);
@@ -19,7 +19,13 @@ const Header = () => {
     }, [location]);
     
   return (
-    <Navbar expand="lg" variant="light" bg="transparent" sticky="top">
+    <Navbar
+      className="shadow-sm  bg-body rounded"
+      expand="lg"
+      variant="light"
+      bg="transparent"
+      sticky="top"
+    >
       <Container>
         <Navbar.Brand href="/">
           Cuisine Chronicles
@@ -56,25 +62,25 @@ const Header = () => {
               Blog
             </Link>
           </div>
-          {signIn && (
-            <Link
-              className="p-3"
-              style={{
-                textDecoration: "none",
-                fontSize: "20px",
-                fontWeight: "400",
-                color: "black",
-              }}
-            >
-              <FaUser id="app-title" />
-              <Tooltip
-                anchorId="app-title"
-                place="bottom"
-                content={signIn.displayName || "user"}
-              />
-            </Link>
-          )}
-          {signIn ? (
+          <Link
+            className="p-3"
+            style={{
+              textDecoration: "none",
+              fontSize: "20px",
+              fontWeight: "400",
+              color: "black",
+            }}
+          >
+          {/* change here only or login firstly */}
+            <img src={user.photoURL} className="rounded-circle w-50" id="app-title" alt={<FaUser />} />
+
+            <Tooltip
+              anchorId="app-title"
+              place="bottom"
+              content={user ? user.displayName : "Login"}
+            ></Tooltip>
+          </Link>
+          {user ? (
             <Button variant="light">
               <Link
                 style={{

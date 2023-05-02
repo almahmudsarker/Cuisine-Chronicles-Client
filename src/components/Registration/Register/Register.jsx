@@ -5,13 +5,15 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const Register = () => {
 
   //validation for the form
   const [validated, setValidated] = useState(false);
   //authenticating the user
-  const { createUser} = useContext(AuthContext);
+  const { createUser, signInWithGoogle } = useContext(AuthContext);
 
 
 
@@ -112,8 +114,40 @@ const handleAccepted = (event) => {
           />
         </Form.Group>
         <Button className="w-25" type="submit" disabled={!accepted}>
-          <Link to="/login" style={{textDecoration: "none",fontSize: "20px" ,color: "white"}}>
+          <Link
+            to="/login"
+            style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
+          >
             Register
+          </Link>
+        </Button>
+        <hr className="w-25" />
+        <Button
+          onClick={signInWithGoogle}
+          className="w-25"
+          style={{ backgroundColor: "gray", border: "none" }}
+          type="submit"
+          disabled={!accepted}
+        >
+          <Link
+            to="/login"
+            style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
+          >
+            <FaGoogle/> Sign up with Google
+          </Link>
+        </Button>
+        <br />
+        <Button
+          className="w-25 mt-3"
+          style={{ backgroundColor: "gray", border: "none" }}
+          type="submit"
+          disabled={!accepted}
+        >
+          <Link
+            to="/login"
+            style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
+          >
+           <FaGithub/> Sign up with Github
           </Link>
         </Button>
       </Form>
