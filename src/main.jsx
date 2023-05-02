@@ -12,6 +12,7 @@ import Login from "./components/Registration/Login/Login";
 import Register from "./components/Registration/Register/Register";
 import AuthProvider from './providers/AuthProvider.jsx';
 import "react-tooltip/dist/react-tooltip.css";
+import Terms from './components/Registration/Terms/Terms.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/terms",
+        element: <Terms></Terms>
       },
     ],
   },

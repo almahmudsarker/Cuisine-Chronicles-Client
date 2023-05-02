@@ -41,7 +41,11 @@ const Register = () => {
     });
   };
 
-
+  // check box for terms and conditions
+const [accepted, setAccepted] = useState(false);
+const handleAccepted = (event) => {
+  setAccepted(event.target.checked);
+};
 
   return (
     <Container className="w-100 mx-auto mt-5 pt-5 mb-5">
@@ -95,15 +99,22 @@ const Register = () => {
         </Col>
         <Form.Group className="mb-3">
           <Form.Check
-            required
+            onClick={handleAccepted}
+            type="checkbox"
             name="accept"
-            label="Agree to terms and conditions"
+            label={
+              <>
+                Accept <Link to="/terms">Terms and Conditions</Link>{" "}
+              </>
+            }
             feedback="You must agree before submitting."
             feedbackType="invalid"
           />
         </Form.Group>
-        <Button className="w-25" type="submit">
-          Register
+        <Button className="w-25" type="submit" disabled={!accepted}>
+          <Link to="/login" style={{textDecoration: "none",fontSize: "20px" ,color: "white"}}>
+            Register
+          </Link>
         </Button>
       </Form>
       <small className="d-block mt-3">
