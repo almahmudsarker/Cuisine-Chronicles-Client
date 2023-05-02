@@ -4,7 +4,7 @@ import { Container, Navbar } from 'react-bootstrap';
 const Footer = () => {
     return (
       <Navbar
-        className="shadow-none bg-light rounded"
+        className="mt-5"
         expand="lg"
         variant="light"
         bg="transparent"

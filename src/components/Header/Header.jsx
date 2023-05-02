@@ -20,7 +20,7 @@ const Header = () => {
     }, [location]);
     
   return (
-    <Navbar expand="lg" variant="light" bg="transparent" sticky="top">
+    <Navbar expand="lg" variant="light" bg="transparent">
       <Container>
         <Navbar.Brand href="/">
           Cuisine Chronicles
