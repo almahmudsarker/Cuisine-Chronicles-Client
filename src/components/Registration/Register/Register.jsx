@@ -18,13 +18,9 @@ const Register = () => {
     setValidated(true);
   };
   return (
-    <Container>
-      <Form
-        className="mx-auto mt-5"
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-      >
+    <Container className="w-100 mx-auto mt-5 pt-5">
+      <h3>Please Register</h3>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Col className="mb-3">
           <Form.Group as={Col} md="4" controlId="validationCustom01">
             <Form.Label className="fs-5">Name</Form.Label>
