@@ -11,6 +11,7 @@ import Blog from "./components/Blog/Blog";
 import Login from "./components/Registration/Login/Login";
 import Register from "./components/Registration/Register/Register";
 import AuthProvider from './providers/AuthProvider.jsx';
+import "react-tooltip/dist/react-tooltip.css";
 
 const router = createBrowserRouter([
   {

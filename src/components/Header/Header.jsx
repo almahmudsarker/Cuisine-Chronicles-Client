@@ -5,10 +5,12 @@ import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaUser } from "react-icons/fa";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
 
-  const {user} =useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   const location = useLocation();
     const [url, setUrl] = useState(null);
@@ -54,7 +56,7 @@ const Header = () => {
               Blog
             </Link>
           </div>
-          {user && (
+          {signIn && (
             <Link
               className="p-3"
               style={{
@@ -64,10 +66,15 @@ const Header = () => {
                 color: "black",
               }}
             >
-              <FaUser />
+              <FaUser id="app-title" />
+              <Tooltip
+                anchorId="app-title"
+                place="bottom"
+                content={signIn.displayName || "user"}
+              />
             </Link>
           )}
-          {user ? (
+          {signIn ? (
             <Button variant="light">
               <Link
                 style={{
