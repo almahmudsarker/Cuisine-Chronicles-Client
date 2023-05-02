@@ -5,12 +5,15 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
     //validation for the form
   const [validated, setValidated] = useState(false);
     //authenticating the user
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -67,10 +70,37 @@ const Login = () => {
         <Button className="w-25" type="submit">
           Login
         </Button>
+        <hr />
+        <Button
+          onClick={signInWithGoogle}
+          className="w-25"
+          style={{ backgroundColor: "gray", border: "none" }}
+          type="submit"
+        >
+          <Link
+            to="/"
+            style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
+          >
+            <FaGoogle /> Sign up with Google
+          </Link>
+        </Button>
+        <br />
+        <Button
+          onClick={signInWithGithub}
+          className="w-25 mt-3"
+          style={{ backgroundColor: "gray", border: "none" }}
+          type="submit"
+        >
+          <Link
+            to="/"
+            style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
+          >
+            <FaGithub /> Sign up with Github
+          </Link>
+        </Button>
         <small className="d-block mt-3">
           Don't have an account? <Link to="/register">Register</Link>
         </small>
-
       </Form>
     </Container>
   );

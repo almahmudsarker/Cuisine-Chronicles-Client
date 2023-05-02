@@ -10,7 +10,10 @@ import { Tooltip } from "react-tooltip";
 
 const Header = () => {
 
-  const { signIn, signInWithGoogle,user } = useContext(AuthContext);
+  const { user, handleSignOut } = useContext(AuthContext);
+  
+  const Name = user ? user.displayName : "Guest";
+  const photo = user ? user.photoURL : <FaUser />;
 
   const location = useLocation();
     const [url, setUrl] = useState(null);
@@ -62,26 +65,18 @@ const Header = () => {
               Blog
             </Link>
           </div>
-          <Link
-            className="p-3"
-            style={{
-              textDecoration: "none",
-              fontSize: "20px",
-              fontWeight: "400",
-              color: "black",
-            }}
-          >
-          {/* change here only or login firstly */}
-            <img src={user.photoURL} className="rounded-circle w-50" id="app-title" alt={<FaUser />} />
-
+          <div>
+            {user && (
+              <img src={photo} id="app-title" className="rounded-circle me-3" style={{width: "50px"}} />
+            )}
             <Tooltip
               anchorId="app-title"
               place="bottom"
-              content={user ? user.displayName : "Login"}
-            ></Tooltip>
-          </Link>
+              content={user ? Name : "Login"}
+            />
+          </div>
           {user ? (
-            <Button variant="light">
+            <Button onClick={handleSignOut} variant="light">
               <Link
                 style={{
                   textDecoration: "none",

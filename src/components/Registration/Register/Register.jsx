@@ -13,7 +13,7 @@ const Register = () => {
   //validation for the form
   const [validated, setValidated] = useState(false);
   //authenticating the user
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
 
 
@@ -130,21 +130,22 @@ const handleAccepted = (event) => {
           disabled={!accepted}
         >
           <Link
-            to="/login"
+            to="/"
             style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
           >
             <FaGoogle/> Sign up with Google
           </Link>
         </Button>
         <br />
-        <Button
+        <Button 
+          onClick={signInWithGithub}
           className="w-25 mt-3"
           style={{ backgroundColor: "gray", border: "none" }}
           type="submit"
           disabled={!accepted}
         >
           <Link
-            to="/login"
+            to="/"
             style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
           >
            <FaGithub/> Sign up with Github
