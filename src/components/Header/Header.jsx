@@ -56,6 +56,19 @@ const Header = () => {
             >
               Blog
             </Link>
+            <Link
+              to="/favourite"
+              className={"underline" + (url === "/favourite" ? " active" : "")}
+              style={{
+                textDecoration: "none",
+                fontSize: "20px",
+                transition: "all 0.2s ease-in-out",
+                fontWeight: "400",
+                marginLeft: "1rem",
+              }}
+            >
+              Favourite
+            </Link>
           </div>
           <div>
             {user && (

@@ -16,6 +16,7 @@ import Terms from './components/Registration/Terms/Terms.jsx';
 import ChefDetails from './pages/Chefs/ChefDetails.jsx';
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import Favourite from './pages/Favourite/Favourite.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/chefs",
         element: <ChefDetails></ChefDetails>
+      },
+      {
+        path: "/favourite",
+        element: <Favourite></Favourite>
       },
     ],
   },

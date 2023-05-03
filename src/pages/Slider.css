@@ -26,3 +26,18 @@
     background: rgba(0, 0, 0, 0.462);
     width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+    .banners .overlaying {
+        font-size: 10px;
+    }
+    .carousel{
+        height: 300px;
+    }
+    .overlaying h1{
+        font-size: 20px;
+        width: 80%;
+        margin-left: 40px;
+    }
+}
+    
