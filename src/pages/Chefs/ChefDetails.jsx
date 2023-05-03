@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -14,8 +14,18 @@ import {
 } from "react-icons/fa";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ChefDetails = () => {
+
+    const [disabled, setDisabled] = useState(false);
+const handleClick = () => {
+    toast.success("Added to Favourites!");
+  setDisabled(true);
+  // perform other actions if needed
+};
+
     return (
       <Container>
         <Card className="bg-transparent text-white" style={{ border: "none" }}>
@@ -103,8 +113,16 @@ const ChefDetails = () => {
                       value={3.5}
                       readOnly
                     />
-                    <Button style={{backgroundColor: "rgba(0,0,0,0.2)", border: "none"}}>
+                    <Button
+                      style={{
+                        backgroundColor: "rgba(0,0,0,0.4)",
+                        border: "none",
+                      }}
+                      disabled={disabled}
+                      onClick={handleClick}
+                    >
                       <FaHeart />
+                    <ToastContainer />
                     </Button>
                   </div>
                 </Card.Body>
