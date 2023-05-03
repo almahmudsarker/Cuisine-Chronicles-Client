@@ -13,6 +13,9 @@ import Register from "./components/Registration/Register/Register";
 import AuthProvider from './providers/AuthProvider.jsx';
 import "react-tooltip/dist/react-tooltip.css";
 import Terms from './components/Registration/Terms/Terms.jsx';
+import ChefDetails from './pages/Chefs/ChefDetails.jsx';
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/terms",
         element: <Terms></Terms>
+      },
+      {
+        path: "/chefs",
+        element: <ChefDetails></ChefDetails>
       },
     ],
   },

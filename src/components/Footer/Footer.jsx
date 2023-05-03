@@ -8,7 +8,7 @@ const Footer = () => {
         expand="lg"
         variant="light"
         bg="transparent"
-        style={{ position: "fixed", bottom: "0", width: "100%" }}
+        style={{ bottom: "0", width: "100%" }}
       >
         <Container>
           <h6>Copyrights © 2023 Cuisine Chronicles.</h6>
