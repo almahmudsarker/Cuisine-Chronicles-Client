@@ -46,12 +46,13 @@ const router = createBrowserRouter([
         element: <Terms></Terms>,
       },
       {
-        path: "/chefs",
+        path: "/chef/:id",
         element: (
           <PrivateRoute>
             <ChefDetails></ChefDetails>
           </PrivateRoute>
         ),
+        loader: ({params}) => fetch(`https://assignment-10-server-almahmudsarker.vercel.app/chefs/${params.id}`)
       },
       {
         path: "/favourite",

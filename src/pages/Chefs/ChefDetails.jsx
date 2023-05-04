@@ -16,16 +16,19 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLoaderData, useParams } from 'react-router-dom';
+import Food from './Food';
 
 const ChefDetails = () => {
 
-
-    const [disabled, setDisabled] = useState(false);
-const handleClick = () => {
-    toast.success("Added to Favourites!");
-  setDisabled(true);
-  // perform other actions if needed
-};
+  const {id} = useParams();
+  const categoryChefs = useLoaderData();
+//     const [disabled, setDisabled] = useState(false);
+// const handleClick = () => {
+//     toast.success("Added to Favourites!");
+//   setDisabled(true);
+//   // perform other actions if needed
+// };
 
 
     return (
@@ -86,52 +89,12 @@ const handleClick = () => {
           </Card.Body>
         </Card>
         {/* Recipe Parts */}
-        <Row xs={1} md={2} lg={3} className="g-4 mt-5">
-          {Array.from({ length: 12 }).map((_, idx) => (
-            <Col>
-              <Card>
-                <Card.Img
-                  variant="top"
-                  src="https://gourmand.qodeinteractive.com/wp-content/uploads/2018/01/product-3.jpg"
-                />
-                <Card.Body>
-                  <Card.Title>JAZZY BROWNIE</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">
-                    <span className="me-2">Made With</span>
-                    <span className="me-2">|</span>
-                    <small>
-                      1 cup all-purpose flour 1/2 cup unsalted butter, melted 1
-                      cup granulated sugar 1/2 cup unsweetened cocoa powder 2
-                      large eggs 1 teaspoon vanilla extract
-                    </small>
-                  </Card.Subtitle>
-                  <Card.Text className="text-muted">
-                    Preheat your oven to 350°F 180°C. Broiled peanut, Broiled
-                    Bacon-Basted Salmon with Mushroom-Oyster Sauce
-                  </Card.Text>
-                  <div className="text-muted d-flex">
-                    <Rating
-                      style={{ maxWidth: 120, marginRight: "220px" }}
-                      value={3.5}
-                      readOnly
-                    />
-                    <Button
-                      style={{
-                        backgroundColor: "rgba(0,0,0,0.4)",
-                        border: "none",
-                      }}
-                      disabled={disabled}
-                      onClick={handleClick}
-                    >
-                      <FaHeart />
-                      <ToastContainer />
-                    </Button>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+        {
+          categoryChefs.map(categoryChef => <Food
+          key={categoryChef._id}
+          categoryChef={categoryChef}
+          ></Food>)
+        }
       </Container>
     );
 };
