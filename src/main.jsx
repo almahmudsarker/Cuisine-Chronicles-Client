@@ -17,6 +17,7 @@ import ChefDetails from './pages/Chefs/ChefDetails.jsx';
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import Favourite from './pages/Favourite/Favourite.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,11 +47,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/chefs",
-        element: <ChefDetails></ChefDetails>,
+        element: (
+          <PrivateRoute>
+            <ChefDetails></ChefDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/favourite",
-        element: <Favourite></Favourite>,
+        element: (
+          <PrivateRoute>
+            <Favourite></Favourite>
+          </PrivateRoute>
+        ),
       },
     ],
   },
