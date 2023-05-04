@@ -29,7 +29,7 @@ const handleClick = () => {
 
 
     return (
-      <Container>
+      <Container className="mb-5 pb-5">
         <Card className="bg-transparent text-white" style={{ border: "none" }}>
           <Card.Img src="https://images.unsplash.com/photo-1499125562588-29fb8a56b5d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" />
           <Card.ImgOverlay
@@ -124,7 +124,7 @@ const handleClick = () => {
                       onClick={handleClick}
                     >
                       <FaHeart />
-                    <ToastContainer />
+                      <ToastContainer />
                     </Button>
                   </div>
                 </Card.Body>

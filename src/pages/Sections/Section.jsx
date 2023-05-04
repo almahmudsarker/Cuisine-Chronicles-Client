@@ -61,7 +61,7 @@ const Section = () => {
             <h6>We Aim to Inspire</h6>
           </div>
         </Container>
-          <Marquee>
+          <Marquee className='mb-5 pb-5'>
             <img src="https://gourmand.qodeinteractive.com/wp-content/uploads/2018/02/client-5.png" />
             <img src="https://gourmand.qodeinteractive.com/wp-content/uploads/2018/02/client-1.png" />
             <img src="https://gourmand.qodeinteractive.com/wp-content/uploads/2018/02/client-2.png" />

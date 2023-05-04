@@ -7,8 +7,8 @@ const Footer = () => {
         className="mt-5"
         expand="lg"
         variant="light"
-        bg="transparent"
-        style={{ bottom: "0", width: "100%" }}
+        bg="light"
+        style={{position:"fixed", bottom: "0", width: "100%" }}
       >
         <Container>
           <h6>Copyrights © 2023 Cuisine Chronicles.</h6>
