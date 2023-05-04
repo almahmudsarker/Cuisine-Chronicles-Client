@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import SingleChef from './SingleChef';
+import { Link } from 'react-router-dom';
 
 const ChefSection = () => {
 
@@ -24,7 +25,7 @@ const ChefSection = () => {
           <SingleChef 
           key={chef.id}
           chef={chef}
-          >   
+          >
           </SingleChef>
         ))}
       </Container>

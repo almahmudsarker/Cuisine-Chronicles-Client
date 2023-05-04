@@ -54,8 +54,8 @@ const SingleChef = ({chef}) => {
               <FaLinkedinIn />
             </div>
             <Button className="mt-4 mb-2" variant="outline-dark">
-              <Link to="/chefs" className="text-decoration-none">
-                View Recipes
+              <Link to={`/chef/${chef.id}`} className="text-decoration-none">
+                View Recipe
               </Link>
             </Button>
           </Card.Body>
