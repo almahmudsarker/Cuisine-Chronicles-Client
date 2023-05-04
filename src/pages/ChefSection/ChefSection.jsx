@@ -12,23 +12,27 @@ import {
   FaWatchmanMonitoring,
 } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "./blur.css"
 
 const ChefSection = () => {
     return (
-      <Container>
-        <div className="text-center mt-1 mb-5">
+      <Container className="mt-5 pt-5">
+        <div className="text-center mt-5 mb-5">
           <h1>THE TEAM</h1>
           <h6>Experience & Commitment</h6>
         </div>
         <Row xs={1} md={2} lg={3} className="g-4 mb-5">
           {Array.from({ length: 6 }).map((_, idx) => (
             <Col>
-              <Card border="light" style={{}}>
-                <Card.Img
-                  className="rounded-circle w-50 mx-auto"
-                  variant="top"
-                  src="https://gourmand.qodeinteractive.com/wp-content/uploads/2018/01/h1-team-member-1.jpg"
+              <Card border="light">
+                <LazyLoadImage
+                  style={{marginLeft: "100px"}}
+                  className="rounded-circle w-50"
+                  effect="blur"
+                  src="https://gourmand.qodeinteractive.com/wp-content/uploads/2018/01/h1-team-member-3.jpg"
                 />
+
                 <Card.Body className="text-center">
                   <Card.Title>MASON ROBINSON</Card.Title>
                   <Card.Subtitle className="mt-4 mb-4 text-muted">

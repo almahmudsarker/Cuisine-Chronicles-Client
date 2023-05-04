@@ -19,12 +19,14 @@ import "react-toastify/dist/ReactToastify.css";
 
 const ChefDetails = () => {
 
+
     const [disabled, setDisabled] = useState(false);
 const handleClick = () => {
     toast.success("Added to Favourites!");
   setDisabled(true);
   // perform other actions if needed
 };
+
 
     return (
       <Container>

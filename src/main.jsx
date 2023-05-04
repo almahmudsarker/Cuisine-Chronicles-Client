@@ -42,15 +42,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/terms",
-        element: <Terms></Terms>
+        element: <Terms></Terms>,
       },
       {
         path: "/chefs",
-        element: <ChefDetails></ChefDetails>
+        element: <ChefDetails></ChefDetails>,
       },
       {
         path: "/favourite",
-        element: <Favourite></Favourite>
+        element: <Favourite></Favourite>,
       },
     ],
   },
