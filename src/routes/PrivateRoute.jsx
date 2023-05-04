@@ -7,7 +7,15 @@ import Spinner from "react-bootstrap/Spinner";
 const PrivateRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext);
     if(loading){
-        return <Spinner animation="border" variant="secondary" style={{width:"100px", height: "100px", marginLeft:"400px"}} />;
+        return (
+          <div  className='text-align-center'>
+            <Spinner
+              animation="border"
+              variant="secondary"
+              style={{ width: "50px", height: "50px", marginLeft: "300px",marginTop:'20px'}}
+            /> <span className='fs-1 text-secondary'>Loading....</span>
+          </div>
+        );
     }
     if(user){
         return children;
