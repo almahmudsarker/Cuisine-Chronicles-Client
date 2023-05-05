@@ -80,7 +80,7 @@ const Header = () => {
             )}
             <Tooltip
               anchorSelect=".my-anchor-element"
-              place="bottom"
+              place="left"
               content={user ? Name : "Login"}
             />
           </div>
