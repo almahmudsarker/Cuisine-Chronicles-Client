@@ -10,6 +10,9 @@ import { FaGithub } from "react-icons/fa";
 
 const Register = () => {
 
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
   //validation for the form
   const [validated, setValidated] = useState(false);
   //authenticating the user
@@ -18,7 +21,7 @@ const Register = () => {
 
 
   const handleRegister = (event) => {
-    event.preventDefault();
+    
     //validation for the form
     const field = event.currentTarget;
     if (field.checkValidity() === false) {
@@ -26,21 +29,33 @@ const Register = () => {
     }
     setValidated(true);
     //authenticating the user
-    
+    event.preventDefault();
+    setSuccess("");
+    setError("");
     const form = event.target;
     const name = form.name.value;
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password, name, photoURL);
-    createUser(email, password)
-    .then((userCredential) => {
-        const createdUser = userCredential.user;
-        console.log(createdUser);
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+    if (!/(?=.*[a-z]).{8,}/.test(password)){
+      setError(
+        "Must contain at least one number and lowercase letter, and at least 8 or more characters"
+      );
+      return;
+    }
+      createUser(email, password)
+        .then((userCredential) => {
+          const createdUser = userCredential.user;
+          console.log(createdUser);
+          setError("");
+          form.reset();
+          setSuccess("Account created successfully!");
+        })
+        .catch((error) => {
+          console.error(error.message);
+          setError(error.message);
+        });
   };
 
   // check box for terms and conditions
@@ -93,8 +108,6 @@ const handleAccepted = (event) => {
               name="password"
               placeholder="Password"
               required
-              pattern="(?=.*[a-z]).{8,}"
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
             />
             <Form.Control.Feedback>Strength good!</Form.Control.Feedback>
           </Form.Group>
@@ -113,13 +126,10 @@ const handleAccepted = (event) => {
             feedbackType="invalid"
           />
         </Form.Group>
+        <p className="text-danger">{error}</p>
+        <p className="text-success">{success}</p>
         <Button className="w-25" type="submit" disabled={!accepted}>
-          <Link
-            to="/login"
-            style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
-          >
-            Register
-          </Link>
+          Register
         </Button>
         <hr className="w-25" />
         <Button
@@ -133,11 +143,11 @@ const handleAccepted = (event) => {
             to="/"
             style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
           >
-            <FaGoogle/> Sign up with Google
+            <FaGoogle /> Sign up with Google
           </Link>
         </Button>
         <br />
-        <Button 
+        <Button
           onClick={signInWithGithub}
           className="w-25 mt-3"
           style={{ backgroundColor: "gray", border: "none" }}
@@ -148,7 +158,7 @@ const handleAccepted = (event) => {
             to="/"
             style={{ textDecoration: "none", fontSize: "20px", color: "white" }}
           >
-           <FaGithub/> Sign up with Github
+            <FaGithub /> Sign up with Github
           </Link>
         </Button>
       </Form>
